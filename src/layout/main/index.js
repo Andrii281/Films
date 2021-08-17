@@ -12,7 +12,7 @@ const Main = () => {
 
     useEffect(
         () => {
-                fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}=matrix`)
+                fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}&s=matrix`)
                 .then(response => response.json())
                 .then(data => changeMovies(data.Search))
                 changeLoadingState(false)
@@ -21,7 +21,7 @@ const Main = () => {
 
         const searchMovies = (movieName, filter = 'all') => {
             changeLoadingState(true)
-            fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}=${movieName}${filter === 'all' ? `` : `&type=${filter}`}`)
+            fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}&s=${movieName}${filter === 'all' ? `` : `&type=${filter}`}`)
             .then(response => response.json())
             .then(data => changeMovies(data.Search))
             changeLoadingState(false)
